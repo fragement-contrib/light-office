@@ -1,0 +1,44 @@
+<nav class="title">
+  <h1>
+    轻办公
+    <div class="tips">
+      一款简单、高效、免费的在线办公辅助平台
+    </div>
+  </h1>
+  <div class="goback" (click)="goto('index')">返回首页 &gt;&gt;</div>
+</nav>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+<footer class="foot">
+  本项目由
+  <a class="heart" href="https://zxl20070701.github.io/notebook/home.html" target="_blank">
+    z Z ...
+  </a>
+  维护
+
+  <div class="right">
+    <a href="https://github.com/fragement-contrib/light-office" target="_blank">查看源码</a>
+    <a href="https://github.com/fragement-contrib/light-office/issues" target="_blank">联系我们</a>
+    <span>
+      邮箱：1904314465@qq.com
+    </span>
+  </div>
+</footer>
+
+<div class="toptips" [attr.active]="isPhone?'yes':'no'">
+  <h2>
+    友情提醒
+  </h2>
+  <div>
+    本平台目前只支持电脑端浏览器访问，建议使用
+    <span class="important">最新版本的chrome浏览器</span>
+    打开～
+  </div>
+  <div>
+    有任何建议或疑惑都可以<a href="https://github.com/fragement-contrib/light-office/issues" target="_blank">联系我们</a>哦。
+  </div>
+  <div>
+    或发送邮件：1904314465@qq.com
+  </div>
+</div>

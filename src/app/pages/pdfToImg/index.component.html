@@ -1,0 +1,24 @@
+<h2 class="com-title">
+  PDF转图片
+</h2>
+<div class="com-tips">
+  选择一份或多份PDF文件后，可以把这些文件转成图片
+</div>
+<div class="com-file">
+  <input type="file" multiple id="input" (change)="doChange($event)" accept="application/pdf">
+  <label for="input">
+    选择PDF文件
+  </label>
+</div>
+
+<div class="process" [attr.active]="isWork?'yes':'no'">
+
+  <div class="text">
+    正在生成图片，请耐心等待
+  </div>
+  <div class="line" [attr.style]="'border-left-width:'+(process*3+1)+'px'">
+    <span>
+      进度：{{process}}%
+    </span>
+  </div>
+</div>

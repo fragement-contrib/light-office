@@ -1,11 +1,14 @@
 import { Component } from '@angular/core'
+import { CommonModule } from '@angular/common'
 import * as pdfjsLib from "pdfjs-dist"
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdn.jsdelivr.net/npm/pdfjs-dist@2.14.305/build/pdf.worker.min.js"
 
 @Component({
+  standalone: true,
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.scss']
+  styleUrls: ['./index.component.scss'],
+  imports: [CommonModule]
 })
 export class PdfToImgComponent {
 
@@ -47,7 +50,9 @@ export class PdfToImgComponent {
               let viewport = page.getViewport({ scale: 1 })
 
               let canvas = document.createElement("canvas")
-              let context = canvas.getContext('2d')
+              let context = canvas.getContext('2d', {
+                willReadFrequently: true
+              })
 
               let CSS_UNITS = 3 * 96 / 72
 
@@ -69,7 +74,7 @@ export class PdfToImgComponent {
 
                 let a = document.createElement("a")
                 a.href = url
-                a.download = file.name.replace('.pdf', '') + "_" + (pagenum + 1) + ".jpeg"
+                a.download = file.name.replace('.pdf', '') + (pdf.numPages > 1 ? ("_" + (pagenum + 1)) : '') + ".jpeg"
 
                 a.click()
                 hadCount += 1

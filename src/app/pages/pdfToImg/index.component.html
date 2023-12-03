@@ -11,7 +11,7 @@
   </label>
 </div>
 
-<div class="process" [attr.active]="isWork?'yes':'no'">
+<div class="process" *ngIf="isWork">
 
   <div class="text">
     正在生成图片，请耐心等待
